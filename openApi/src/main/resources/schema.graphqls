@@ -1,0 +1,14 @@
+type Query {
+    recipeByName(name: String): Recipe
+}
+
+type Recipe {
+       id: ID
+       name: String
+       author: User
+}
+
+type User {
+  id: ID
+  name: String
+}

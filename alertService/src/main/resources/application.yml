@@ -1,0 +1,25 @@
+micronaut:
+  application:
+    name: alertservice
+datasources:
+  default:
+    url: ${PG_URL}
+    driverClassName: org.postgresql.Driver
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
+    dialect: POSTGRES
+jpa.default.properties.hibernate.hbm2ddl.auto: validate
+rabbitmq:
+  host: ${RABBIT_HOST}
+  port: ${RABBIT_PORT}
+  username: ${RABBIT_USER}
+  password: ${RABBIT_PWD}
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+endpoints:
+  env:
+    enabled: true
+    sensitive: true

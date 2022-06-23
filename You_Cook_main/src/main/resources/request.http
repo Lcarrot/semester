@@ -1,0 +1,83 @@
+POST http://localhost:8080/sign-in
+Content-Type: application/json
+
+{
+  "email": "budrevichanya@gmail.com",
+  "password": "07072001Anya"
+}
+
+###
+
+POST http://localhost:80/sign-up
+Content-Type: application/json
+
+{
+  "username": "Ann_Chous",
+  "email": "budrevichanya@gmail.com",
+  "telegram": "Ann_Utochkka",
+  "password": "07072001Anya"
+}
+
+###
+
+POST http://localhost:8080/update
+Content-Type: application/json
+R-TOKEN: 894c6fe5-b199-4ceb-ad13-209449677cd9
+
+###
+
+GET http://localhost:8080/logout
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+###
+
+GET http://localhost:8080/profile/2
+Content-Type: application/json
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+###
+
+POST http://localhost:8080/profile/2/subscribe
+Content-Type: application/json
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+###
+
+GET http://localhost:8080/profile/2/recipes
+Content-Type: application/json
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+###
+
+GET http://localhost:8080/profile/2/recipes/4
+Content-Type: application/json
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+###
+
+POST http://localhost:8080/profile/2/recipes/create
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+Content-Type: application/json
+
+{
+  "name": "Пюрешка с котлеткой",
+  "ingredients": ["Фаршик куриный", "Солевые", "Спайс", "Картошечка", "Молочко", "Ну хватит"]
+}
+
+###
+
+POST http://localhost:8080/profile/2/recipes/3/delete
+Content-Type: application/json
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+###
+
+POST http://localhost:8080/profile/2/recipes/3/edit
+Content-Type: application/json
+A-TOKEN: eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIzIiwicm9sZSI6IkFETUlOIiwic3RhdGUiOiJBQ1RJVkUiLCJleHAiOjE2MjI4MDU5OTYsImVtYWlsIjoiQnVkcmV2aWNoQW55YUBnbWFpbC5jb20ifQ.2O_kIDv5lXlwKArmbtHMgP6RvPRSEufDaM0cUUMwwJU
+
+{
+  "name": "Я взял твою бу",
+  "ingredients": ["Я", "Ее", "ЕбY"]
+
+}

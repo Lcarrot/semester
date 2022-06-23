@@ -1,0 +1,24 @@
+micronaut:
+  application:
+    name: openapi
+datasources:
+  default:
+    url: ${PG_URL}
+    driverClassName: org.postgresql.Driver
+    username: ${PG_USERNAME}
+    password: ${PG_PASSWORD}
+    dialect: POSTGRES
+jpa.default.properties.hibernate.hbm2ddl.auto: validate
+netty:
+  default:
+    allocator:
+      max-order: 3
+
+graphql:
+  graphiql:
+    enabled: true
+
+endpoints:
+  env:
+    enabled: true
+    sensitive: true

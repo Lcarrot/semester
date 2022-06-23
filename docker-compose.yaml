@@ -1,0 +1,110 @@
+version: '3.3'
+
+services:
+
+  main:
+    image:
+      main
+    container_name: main
+    networks:
+      - cloud
+    ports:
+      - "80:8080"
+    depends_on:
+      - database
+      - redis
+      - rabbitmq
+    environment:
+      - "PG_URL=jdbc:postgresql://database:5432/app_db"
+      - "PG_USERNAME=postgres"
+      - "PG_PASSWORD=qwerty010"
+      - "REDIS_HOST=redis"
+      - "REDIS_PORT=6379"
+      - "RABBIT_HOST=rabbitmq"
+      - "RABBIT_PORT=5672"
+      - "RABBIT_USER=carrot"
+      - "RABBIT_PWD=700ytrewq"
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+  recipe:
+    image: recipe
+    container_name: recipe
+    networks:
+      - cloud
+    ports:
+      - "81:8080"
+    depends_on:
+      - rabbitmq
+      - database
+      - main
+    environment:
+      - "RABBIT_HOST=rabbitmq"
+      - "RABBIT_PORT=5672"
+      - "RABBIT_USER=carrot"
+      - "RABBIT_PWD=700ytrewq"
+      - "PG_URL=jdbc:postgresql://database:5432/app_db"
+      - "PG_USERNAME=postgres"
+      - "PG_PASSWORD=qwerty010"
+
+  database:
+    image:
+      postgres
+    container_name: database
+    networks:
+      - cloud
+    ports:
+      - "5433:5432"
+    environment:
+      POSTGRES_DB: app_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: qwerty010
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+  redis:
+    image:
+      redis-fs
+    container_name: redis
+    networks:
+      - cloud
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-volume:/data
+    logging:
+      driver: "json-file"
+      options:
+        max-file: "5"
+        max-size: "10m"
+
+
+  rabbitmq:
+    container_name: "rabbitmq"
+    networks:
+      - cloud
+    image: rabbitmq:3.8-management-alpine
+    environment:
+      - RABBITMQ_DEFAULT_USER=carrot
+      - RABBITMQ_DEFAULT_PASS=700ytrewq
+    ports:
+      - '5672:5672'
+      - '15672:15672'
+
+volumes:
+  pgdata:
+    external: false
+  redis-volume:
+    external: false
+
+networks:
+  cloud:
+    external: false
